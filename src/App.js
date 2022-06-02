@@ -12,7 +12,7 @@ import './App.css';
 
 //You must add your own API key here from Clarifai.
 const app = new Clarifai.App({
- apiKey: 'YOUR API KEY HERE'
+ apiKey: 'ca1b66c15b0f43ea95fd71764e64a862'
 });
 
 const particlesOptions = {
@@ -45,6 +45,13 @@ class App extends Component {
       }
     }
   }
+
+  //this was to test connection to back end
+  // componentDidMount(){
+  //   fetch('http://localhost:3000/')
+  //   .then(response => response.json())
+  //   .then(console.log)
+  // }
 
   loadUser = (data) => {
     this.setState({user: {
@@ -95,7 +102,7 @@ class App extends Component {
       .then(response => {
         console.log('hi', response)
         if (response) {
-          fetch('http://localhost:3000/image', {
+          fetch('https://whispering-oasis-15158.herokuapp.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
